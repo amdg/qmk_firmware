@@ -4,17 +4,12 @@
 #define _EXT 1
 #define _FN 2
 
-enum tap_dance_keycodes {
-  TD_PSCR = 0
-};
-
-#define FN_QUOTE LALT_T(KC_QUOTE)
-#define FN_ENT RSFT_T(KC_ENT)
+#define FN_BSPC LALT_T(KC_BSPC)
 #define FN_MINUS LT(_FN, KC_MINUS)
+#define FN_QUOTE RSFT_T(KC_QUOTE)
 #define FN_SPC LSFT_T(KC_SPC)
 
-// FIXME APP_NEXT and APP_PREV don't work as expected because alt needs to be held down in order to progress through the list
-#define APP_NEXT LALT(KC_TAB)
+#define APP_NEXT LCTL(LALT(KC_TAB))
 #define APP_PREV LALT(LSFT(KC_TAB))
 #define DSK_NEXT LGUI(LCTL(KC_RIGHT))
 #define DSK_PREV LGUI(LCTL(KC_LEFT))
@@ -28,17 +23,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
        KC_TAB  ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,KC_T    ,                           KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_BSLS ,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-       KC_ESC  ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,                           KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,KC_BSPC ,
+       KC_ESC  ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,                           KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,KC_ENT  ,
     //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-       KC_LCTL ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,FN_QUOTE,         KC_RALT ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RCTL ,
+       KC_LCTL ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,FN_BSPC ,         KC_RALT ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RCTL ,
     //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                      KC_LGUI ,TT(_EXT),FN_SPC  ,                  FN_ENT  ,FN_MINUS,KC_PLUS
+                                      KC_LGUI ,TT(_EXT),FN_SPC  ,                  FN_QUOTE,FN_MINUS,KC_PLUS
                                   // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
   [_EXT] = LAYOUT(
     //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-       KC_GRAVE,KC_1    ,KC_2    ,KC_3    ,KC_4    ,KC_5    ,                           KC_6    ,KC_7    ,KC_8    ,KC_9    ,KC_0    ,_______ ,
+       KC_GRAVE,KC_1    ,KC_2    ,KC_3    ,KC_4    ,KC_5    ,                           KC_6    ,KC_7    ,KC_8    ,KC_9    ,KC_0    ,KC_CAPS ,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
        _______ ,_______ ,KC_PGUP ,KC_LCBR ,KC_LBRC ,KC_LPRN ,                           KC_RPRN ,KC_RBRC ,KC_RCBR ,_______ ,_______ ,_______ ,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
