@@ -60,6 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+#if defined(KEYBOARD_keebio_iris_rev4)
 void encoder_update_user (uint8_t index, bool clockwise) {
   switch (biton32(layer_state)) {
     case _EXT:
@@ -70,3 +71,4 @@ void encoder_update_user (uint8_t index, bool clockwise) {
       break;
   }
 }
+#endif
