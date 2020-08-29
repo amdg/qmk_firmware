@@ -60,15 +60,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
-#if defined(KEYBOARD_keebio_iris_rev4)
 void encoder_update_user (uint8_t index, bool clockwise) {
   switch (biton32(layer_state)) {
     case _EXT:
       clockwise ? tap_code(KC_VOLD) : tap_code(KC_VOLU);
+      break;
+    case _FN:
+      clockwise ? tap_code(KC_MINUS) : tap_code(KC_QUOTE);
       break;
     default:
       clockwise ? tap_code(KC_WH_D) : tap_code(KC_WH_U);
       break;
   }
 }
-#endif
